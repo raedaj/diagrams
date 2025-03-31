@@ -7,13 +7,15 @@ sequenceDiagram
         TradeCentric ->> Website: Submit a API Punchout Request (POST) (/punchout) (@pos, @operation, @return_url, @params)
         activate Website
         note right of TradeCentric: https://app.swaggerhub.com/apis/PunchOut2Go/PunchOut-Request-to-Supplier/1.0.0#/default/punchout
-        note right of Website: Using @request.body.contact.email, <br/> @request.body.contact.unique, <br/> and @request.body.custom.organization_id
         Website ->> Website: Lookup existing Customer Account
+        note left of Website: Using @request.body.contact.email, <br/> @request.body.contact.unique, <br/> and @request.body.custom.organization_id
         Website ->> Website: Lookup existing User. If not exists: <br> AUTO provision the user account <br/> and generate one-time auth token for the user
         alt Customer Account Found and User Authentication Succeeded
             Website -->> TradeCentric: 200: Return tokenized single-use URL (@start_url) for authenticated session
         else Customer Account Not Found or User Auth Failed
-            Website -->> TradeCentric: 400: Return tokenized error page (@start_url & @message)
+            break STOP THE WORKFLOW AND EXIT
+                Website -->> TradeCentric: 400 Error. Return tokenized error page (@start_url & @message)
+            end 
         end
         deactivate Website
     end
