@@ -37,7 +37,7 @@ sequenceDiagram
 
 ## Catalog, Cart, and Checkout Restrictions
 
-### Univeral Rules
+### Universal Rules
 Define universal rules that apply to all customers:
 - Taxes (calcuatled vs disabled)
 - Payment options (confirm to hide / disable)
