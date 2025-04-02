@@ -39,9 +39,9 @@ sequenceDiagram
 
 ### Univeral Rules
 Define universal rules that apply to all customers:
-- Taxes
-- Payment options
-- Shipping options
+- Taxes (calcuatled vs disabled)
+- Payment options (confirm to hide / disable)
+- Shipping options (confirm to hide and use Customer-Specific Config to deteremine the selected shipping method)
 
 ### Customer-Specific Configuration
 Identify customer-specific rules such as:
@@ -53,3 +53,4 @@ Identify customer-specific rules such as:
 - Shipping configuration
   - Cost handling in Cart Transfer (line item vs. separate charge)
   - Shipping methods
+  - Flag for free shipping
