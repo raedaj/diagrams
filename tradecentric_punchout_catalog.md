@@ -1,4 +1,4 @@
-# PunchOut Integration: TradeCentric <> E-COMM Website Integration
+# TradeCentric PunchOut Integration with E-Commerce Platform
 ## Systems Integration Flow
 ```mermaid
 
@@ -54,3 +54,15 @@ Identify customer-specific rules such as:
   - Cost handling in Cart Transfer (line item vs. separate charge)
   - Shipping methods
   - Flag for free shipping
+
+## Terminology
+
+Below is a table of key terminologies used by TradeCentric to help developers understand the context.
+
+| Term      | Definition |
+|-----------|------------|
+| **Buyer** | The organization purchasing goods or services through the TradeCentric PunchOut integration. |
+| **Supplier** | The vendor or seller providing goods or services via the PunchOut-enabled e-commerce platform. |
+| **PunchOut** | A process allowing buyers to access a supplier’s catalog from within their procurement system. |
+| **Cart Transfer** | The action of sending a PunchOut shopping cart from the supplier’s e-commerce platform back to the buyer’s procurement system. |
+| **Order Request** | The formal order sent from the buyer’s system to the supplier for processing. |
