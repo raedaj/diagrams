@@ -50,7 +50,7 @@ Ensure the following key items are scoped and aligned internally and with the cl
   - Users (contacts)  
 - **UI Adjustments**: Define necessary changes for the PunchOut session, including:  
   - Welcome page updates, messaging, and visibility of UI elements  
-- **Catalog, Cart & Checkout Restrictions**: Confirm both universal and customer-specific constraints on tax, payment options, shipping, etc. Refer to the [Catalog, Cart & Checkout Restrictions](#catalog-cart--checkout-restrictions) section for examples.
+- **Catalog, Cart & Checkout Restrictions**: Confirm both universal and customer-specific constraints on tax, payment options, shipping, etc. Refer to the [Catalog, Cart & Checkout Restrictions](##catalog-cart--checkout-restrictions) section for examples.
 
 - **Rule Management**: Determine the system best suited for handling universal and customer-specific rules (e.g., CMS Backoffice, E-COMM Backoffice, TradeCentric Admin Portal).
 
