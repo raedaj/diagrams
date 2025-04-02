@@ -34,11 +34,30 @@ sequenceDiagram
     end
 
 ```
+## Key Considerations for PunchOut Integration  
+Ensure the following key items are scoped and aligned internally and with the client:  
+
+- Is there an existing in-house or third-party PunchOut integration?  
+- **Supported Catalog Type**: PunchOut Catalog, Hosted Catalog, or both?  
+- **Integration Flows**: Confirm the required PunchOut integration flows for the E-COMM website:  
+  - PunchOut Authentication Request  
+  - PunchOut Cart Transfer (Create, Edit, Inspect)  
+  - PunchOut Order Request  
+- **Integration Method**: Align with TradeCentric on whether to use REST API or Form POST.  
+- **Field Mapping**: Identify the key Extrinsic and Custom Fields required in TradeCentric payloads.  
+- **Auto-Provisioning Requirements**:  
+  - Accounts (customers)  
+  - Users (contacts)  
+- **UI Adjustments**: Define necessary changes for the PunchOut session, including:  
+  - Welcome page updates, messaging, and visibility of UI elements  
+- **Catalog, Cart & Checkout Restrictions**: Confirm both universal and customer-specific constraints on tax, payment options, shipping, etc. Refer to the [Catalog, Cart & Checkout Restrictions](#catalog-cart--checkout-restrictions) section for examples.
+
+- **Rule Management**: Determine the system best suited for handling universal and customer-specific rules (e.g., CMS Backoffice, E-COMM Backoffice, TradeCentric Admin Portal).
 
 ## Catalog, Cart, and Checkout Restrictions
 
 ### Universal Rules
-Define universal rules that apply to all customers:
+Define universal rules that apply to all customers such as:
 - Taxes (calcuatled vs disabled)
 - Payment options (confirm to hide / disable)
 - Shipping options (confirm to hide and use Customer-Specific Config to deteremine the selected shipping method)
