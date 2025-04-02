@@ -33,5 +33,23 @@ sequenceDiagram
         deactivate Website
     end
 
-
 ```
+
+## Catalog, Cart, and Checkout Restrictions
+
+### Univeral Rules
+Define universal rules that apply to all customers:
+- Taxes
+- Payment options
+- Shipping options
+
+### Customer-Specific Configuration
+Identify customer-specific rules such as:
+- Price restrictions
+- Item deny lists
+- Heavyweight item exclusions
+- Discount levels
+- Currencies
+- Shipping configuration
+  - Cost handling in Cart Transfer (line item vs. separate charge)
+  - Shipping methods
