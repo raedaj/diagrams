@@ -10,6 +10,9 @@ on:
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GH_USERNAME: ${{ secrets.GITHUB_ACTOR }}
 
     steps:
       - name: Checkout Repository
