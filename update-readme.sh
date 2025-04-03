@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chmod +x update-readme.sh
+
 # Define the output README file
 README_FILE="README.md"
 
