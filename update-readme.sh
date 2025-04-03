@@ -20,6 +20,7 @@ done
 # Commit and push changes if there are any
 git config --global user.name "github-actions[bot]"
 git config --global user.email "github-actions[bot]@users.noreply.github.com"
+git remote set-url origin https://$GH_USERNAME:$GH_TOKEN@github.com/raedaj/integrations.git
 git add $README_FILE
 git commit -m "Auto-updated README.md based on other markdown files" || echo "No changes to commit"
 git push
