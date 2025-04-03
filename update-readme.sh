@@ -8,7 +8,8 @@ echo "# System Integrations" > $README_FILE
 echo "" >> $README_FILE
 
 # Loop through all markdown files (excluding README.md) and add titles and links
-for file in $(ls *.md | grep -v README.md); do
+
+for file in $(find docs -name '*.md' | grep -v 'README.md'); do
     # Extract the first line (title) from the markdown file
     title=$(head -n 1 "$file" | sed 's/^# //')
 
