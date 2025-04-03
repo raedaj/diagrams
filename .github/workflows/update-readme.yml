@@ -1,0 +1,22 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight UTC
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Execute Permissions for Script
+        run: chmod +x update-readme.sh
+
+      - name: Run the Script
+        run: ./update-readme.sh
