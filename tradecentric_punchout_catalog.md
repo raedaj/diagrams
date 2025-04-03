@@ -1,4 +1,4 @@
-# TradeCentric 2 PunchOut Integration with E-Commerce Platform
+# TradeCentric PunchOut Integration with E-Commerce Platform
 
 ## Terminology
 
