@@ -9,11 +9,11 @@ echo "" >> $README_FILE
 
 # Loop through all markdown files (excluding README.md) and add titles and links
 for file in $(ls *.md | grep -v README.md); do
-    # Generate a friendly name by replacing underscores with spaces, capitalizing, and removing the .md extension (case-insensitive)
-    friendly_name=$(echo "$file" | sed -r 's/[_-]/ /g' | sed -r 's/\b([a-z])/\u\1/g' | sed 's/\.md$//I')
+    # Extract the first line (title) from the markdown file
+    title=$(head -n 1 "$file" | sed 's/^# //')
 
-    # Add a section with the friendly name as a title and a link to the file
-    echo "## [$friendly_name]($file)" >> $README_FILE
+    # Add title and link to the README file
+    echo "## [$title]($file)" >> $README_FILE
     echo "" >> $README_FILE
 done
 
