@@ -6,7 +6,7 @@ chmod +x update-readme.sh
 README_FILE="README.md"
 
 # Create a new README header
-echo "# Project Documentation" > $README_FILE
+echo "# System Integrations" > $README_FILE
 echo "" >> $README_FILE
 
 # Loop through all markdown files (excluding README.md) and add titles and links
