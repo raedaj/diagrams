@@ -11,8 +11,11 @@ echo "" >> $README_FILE
 
 # Loop through all markdown files (excluding README.md) and add titles and links
 for file in $(ls *.md | grep -v README.md); do
-    # Add a section with the file name as a title and a link to the file
-    echo "[$(basename "$file" .md)]($file)" >> $README_FILE
+    # Generate a friendly name by replacing underscores with spaces and capitalizing
+    friendly_name=$(echo "$file" | sed -r 's/[_-]/ /g' | sed -r 's/\b([a-z])/\u\1/g')
+
+    # Add a section with the friendly name as a title and a link to the file
+    echo "## [$friendly_name]($file)" >> $README_FILE
     echo "" >> $README_FILE
 done
 
