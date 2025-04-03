@@ -1,4 +1,4 @@
 # System Integrations
 
-## [Tradecentric Punchout Catalog](tradecentric_punchout_catalog.md)
+## [TradeCentric PunchOut Integration with E-Commerce Platform](tradecentric_punchout_catalog.md)
 
