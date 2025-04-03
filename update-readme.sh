@@ -9,11 +9,10 @@ README_FILE="README.md"
 echo "# Project Documentation" > $README_FILE
 echo "" >> $README_FILE
 
-# Loop through all markdown files (excluding README.md) and append them
+# Loop through all markdown files (excluding README.md) and add titles and links
 for file in $(ls *.md | grep -v README.md); do
-    echo "## $(basename "$file" .md)" >> $README_FILE
-    echo "" >> $README_FILE
-    cat "$file" >> $README_FILE
+    # Add a section with the file name as a title and a link to the file
+    echo "## [$(basename "$file" .md)]($file)" >> $README_FILE
     echo "" >> $README_FILE
 done
 
