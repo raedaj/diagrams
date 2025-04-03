@@ -29,6 +29,7 @@ for dir in $(find docs -type d); do
             echo "" >> $README_FILE
         done
     fi
+done  # Closing the main for loop here
 
 # Commit and push changes if there are any
 git config --global user.name "github-actions[bot]"
