@@ -1,4 +1,4 @@
 # System Integrations
 
-## [Tradecentric Punchout Catalog.Md](tradecentric_punchout_catalog.md)
+## [Tradecentric Punchout Catalog](tradecentric_punchout_catalog.md)
 
