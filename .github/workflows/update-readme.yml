@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '**/*.md'       # Trigger for all .md files
+      - '!README.md'     # Exclude README.md file
   workflow_dispatch:  # This allows manual triggering from GitHub Actions UI
 
 jobs:
