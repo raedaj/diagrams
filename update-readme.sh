@@ -31,6 +31,21 @@ for dir in $(find docs -type d); do
     fi
 done  # Closing the main for loop here
 
+# Add PunchOut Reference Implementations Section
+echo "## PunchOut Reference Implementations" >> $README_FILE
+echo "" >> $README_FILE
+
+# Add PunchOut Reference Implementations if not already present
+if ! grep -q "## PunchOut Reference Implementations" "$README_FILE"; then
+    echo "## PunchOut Reference Implementations" >> $README_FILE
+    echo "" >> $README_FILE
+
+    gh repo list "$ORG_NAME" --public --limit 100 --json name,description,language \
+      --jq ".[] | select(.language == \"C#\" and (.description // \"\" | test(\"PunchOut\"; \"i\"))) |
+        \"- [\\(.name)](https://github.com/$ORG_NAME/\\(.name)): \\(.description)\"" >> $README_FILE
+fi
+
+
 # Commit and push changes if there are any
 git config --global user.name "github-actions[bot]"
 git config --global user.email "github-actions[bot]@users.noreply.github.com"
