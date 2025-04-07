@@ -41,8 +41,8 @@ echo "" >> $README_FILE
 
 # Fetch private repositories and filter them by the description for "PunchOut"
 gh repo list "$ORG_NAME" --private --limit 100 --json name,description,language \
-  --jq ".[] | select(.language == \"C#\" and (.description // \"\" | test(\"PunchOut\"; \"i\"))) |
-    \"- [\\(.name)](https://github.com/$ORG_NAME/\\(.name)): \\(.description)\"" >> $README_FILE
+  --jq '.[] | select(.description // "" | test("PunchOut"; "i")) |
+    "- [\\(.name)](https://github.com/$ORG_NAME/\\(.name)): \\(.description)"' >> $README_FILE
 
 # Commit and push changes if there are any
 git config --global user.name "github-actions[bot]"
