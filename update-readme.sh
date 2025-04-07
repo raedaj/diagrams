@@ -31,19 +31,6 @@ for dir in $(find docs -type d); do
     fi
 done  # Closing the main for loop here
 
-# Always fetch and update the PunchOut Reference Implementations section
-# Remove the existing "PunchOut Reference Implementations" section and its content if it exists
-sed -i '/## PunchOut Reference Implementations/,$d' "$README_FILE"
-
-# Add the PunchOut Reference Implementations section and update it
-echo "## PunchOut Reference Implementations" >> $README_FILE
-echo "" >> $README_FILE
-
-# Fetch private repositories and filter them by the description for "PunchOut"
-gh repo list "$ORG_NAME" --private --limit 100 --json name,description,language \
-  --jq '.[] | select(.description // "" | test("PunchOut"; "i")) |
-    "- [\\(.name)](https://github.com/$ORG_NAME/\\(.name)): \\(.description)"' >> $README_FILE
-
 # Commit and push changes if there are any
 git config --global user.name "github-actions[bot]"
 git config --global user.email "github-actions[bot]@users.noreply.github.com"
