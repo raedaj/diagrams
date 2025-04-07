@@ -31,20 +31,18 @@ for dir in $(find docs -type d); do
     fi
 done  # Closing the main for loop here
 
-# Add PunchOut Reference Implementations Section
+# Always fetch and update the PunchOut Reference Implementations section
+# Remove the existing "PunchOut Reference Implementations" section and its content if it exists
+sed -i '/## PunchOut Reference Implementations/,$d' "$README_FILE"
+
+# Add the PunchOut Reference Implementations section and update it
 echo "## PunchOut Reference Implementations" >> $README_FILE
 echo "" >> $README_FILE
 
-# Add PunchOut Reference Implementations if not already present
-if ! grep -q "## PunchOut Reference Implementations" "$README_FILE"; then
-    echo "## PunchOut Reference Implementations" >> $README_FILE
-    echo "" >> $README_FILE
-
-    # Fetch private repositories and filter them by the description for "PunchOut"
-    gh repo list "$ORG_NAME" --private --limit 100 --json name,description,language \
-      --jq ".[] | select(.language == \"C#\" and (.description // \"\" | test(\"PunchOut\"; \"i\"))) |
-        \"- [\\(.name)](https://github.com/$ORG_NAME/\\(.name)): \\(.description)\"" >> $README_FILE
-fi
+# Fetch private repositories and filter them by the description for "PunchOut"
+gh repo list "$ORG_NAME" --private --limit 100 --json name,description,language \
+  --jq ".[] | select(.language == \"C#\" and (.description // \"\" | test(\"PunchOut\"; \"i\"))) |
+    \"- [\\(.name)](https://github.com/$ORG_NAME/\\(.name)): \\(.description)\"" >> $README_FILE
 
 # Commit and push changes if there are any
 git config --global user.name "github-actions[bot]"
