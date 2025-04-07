@@ -40,11 +40,11 @@ if ! grep -q "## PunchOut Reference Implementations" "$README_FILE"; then
     echo "## PunchOut Reference Implementations" >> $README_FILE
     echo "" >> $README_FILE
 
-    gh repo list "$ORG_NAME" --public --limit 100 --json name,description,language \
+    # Fetch private repositories and filter them by the description for "PunchOut"
+    gh repo list "$ORG_NAME" --private --limit 100 --json name,description,language \
       --jq ".[] | select(.language == \"C#\" and (.description // \"\" | test(\"PunchOut\"; \"i\"))) |
         \"- [\\(.name)](https://github.com/$ORG_NAME/\\(.name)): \\(.description)\"" >> $README_FILE
 fi
-
 
 # Commit and push changes if there are any
 git config --global user.name "github-actions[bot]"
